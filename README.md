@@ -481,6 +481,32 @@ In PowerPoint/Excel:
 - Y‑axis: Phases (rows above)  
 - Draw horizontal bars spanning the weeks for each phase.
 
+Example Gantt chart in markdown (for tools that support Mermaid):
+
+```mermaid
+gantt
+    title LoRa Leak Detection Project Timeline
+    dateFormat  WW
+    axisFormat  "W%W"
+
+    section Planning
+    Literature review & requirements     :done,    p1, 01, 3
+    System architecture & components     :active,  p2, 02, 3
+
+    section Implementation
+    Hardware prototyping                 :p3, 04, 3
+    Firmware development (MCU + LoRa)    :p4, 07, 3
+    Gateway & dashboard software         :p5, 10, 2
+
+    section Testing
+    Testbed construction (pipeline)      :p6, 12, 2
+    Testing & data collection            :p7, 14, 3
+    Analysis & optimization              :p8, 17, 2
+
+    section Reporting
+    Report & presentation preparation    :p9, 19, 2
+```
+
 ---
 
 ### Figure 4 – Sample Leak Detection Results (Time‑Series Graph)
@@ -508,6 +534,21 @@ Sample data:
 
 - Add a horizontal leak detection threshold line (e.g., RMS = 0.40) to show when the leak is detected.
 
+Simple ASCII‑style sketch of the graph (for reports that allow text diagrams):
+
+```text
+RMS
+0.7 |                                Leak
+0.6 |                         ****** ****** 
+0.5 |                    ******            
+0.4 |-----------THRESHOLD---------------------- 
+0.3 |
+0.2 | Normal  ******  ******  ******  ****** 
+0.1 |
+    +-----------------------------------------> Time
+        0      2      4      6      8     10
+```
+
 ---
 
 ### Figure 5 – Detection Performance Bar Chart (Optional)
@@ -524,5 +565,22 @@ Sample data:
 
 - X‑axis: Detection Rate, False Alarm Rate  
 - Y‑axis: Percentage (0–100%).  
+
+You can also represent this as an ASCII bar chart:
+
+```text
+100% | 
+ 90% | Detection Rate   [#########################]
+ 80% |
+ 70% |
+ 60% |
+ 50% |
+ 40% |
+ 30% |
+ 20% |
+ 10% | False Alarm Rate [###]
+  0% +---------------------------------------------
+         Metric
+```
 
 
